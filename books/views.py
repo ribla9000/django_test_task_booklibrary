@@ -53,6 +53,14 @@ def create_user_form(request: HttpRequest):
 def create_user(request: HttpRequest):
     items = request.POST.items()
     values = get_post_values(items)
+
+    try:
+        u = Users.objects.filter(name=values["name"], last_name=values["last_name"], father_name=values["father_name"])
+        print("Sorry, this user already exists")
+        return HttpResponseRedirect(redirect_to="/books/reader-card/form/")
+    except Users.DoesNotExist:
+        pass
+
     values["is_author"] = True if values.get("is_author") is not None else False
     u = Users(**values)
     u.save()
