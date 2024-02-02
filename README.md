@@ -1,7 +1,8 @@
 **StepByStep**:
 
 1.`pip3 install -r requirements.txt` \
-2.`python3 manage.py runserver 8000` 
+2.`python3 manage.py runserver 8000` \
+3. `http://127.0.0.1:8000/books/` (вставить в бразуере)
 
 **Features** *rus:
 1)	Создание книг – книги имеют название и автора. У одного автора может быть несколько книг
