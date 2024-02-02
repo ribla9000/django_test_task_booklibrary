@@ -1,6 +1,6 @@
 **StepByStep**:
 
-1.`pip3 install -r requirements.txt` 
+1.`pip3 install -r requirements.txt` \
 2.`python3 manage.py runserver 8000` 
 
 **Features** *rus:
