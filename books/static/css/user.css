@@ -1,0 +1,26 @@
+div.user-page{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+div.user-info{
+    color: purple;
+    border: solid;
+    flex-basis: 30%;
+    display: block;
+}
+
+div.lending-books {
+    color: darkred;
+    border: solid 1px red;
+    flex-basis: 70%;
+    display: block;
+}
+div.booked-book {
+    color: blue;
+    border: solid darkkhaki;
+    margin: 2rem;
+}
+
+div.

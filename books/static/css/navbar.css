@@ -1,0 +1,51 @@
+div.navbar {
+	background-color: #3c4a46;
+	margin-top: -0.7%;
+	margin-left: -0.5%;
+  	padding: 1.1%;
+  	margin-right: 45rem;
+    border-right: 0.6rem solid #1f7a60;
+    border-radius: 0rem 0rem 7rem 7rem;
+    animation: border-blink 1s infinite;
+}
+div.navbar-selections {
+	letter-spacing: 0.1rem;
+	margin-left: 4rem;
+	font-family: verdana;
+	font-size: 2.5rem;
+}
+a.books {
+  	display:inline;
+	text-decoration: none;
+    color: #FFC0CB;
+    font-family: Impact;
+    text-shadow: -0.2rem 0.2rem 0.4rem #c048c2;
+    animation: blink 2s infinite;
+}
+@keyframes blink {
+  0% {
+    color: #FFC0CB;
+  }
+  50% {
+    color: #f7748b;
+    text-shadow: -0.2rem 0.2rem 0.4rem #eb0095;
+  }
+  100% {
+    color: #FFC0CB;
+    text-shadow: -0.2rem 0.2rem 0.4rem #c048c2;
+  }
+}
+a.users {
+	display:inline;
+	text-decoration: none;
+    color: #b27fa4;
+    font-family: Impact;
+    text-shadow: -0.2rem 0.2rem 0.4rem #c048c2;
+}
+a.mycard {
+    display:inline;
+    text-decoration: none;
+    color: #b27fa4;
+    font-family: Impact;
+    text-shadow: -0.2rem 0.2rem 0.4rem #c048c2;
+}

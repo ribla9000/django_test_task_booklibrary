@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block title %} Book {% endblock %}
+
+{% block content %}
+{% if book %}
+    <div class="book">
+        Title: {{ book.title }}<br>
+        Description: {{ book.description }}<br>
+        Pages: {{ book.pages }}<br>
+        Article: {{ book.article }}<br>
+        Count in stash: {{ count }}
+
+        {% if is_returned %}
+            <form method="post" action="/books/add-book/">
+                {% csrf_token %}
+                <input name="book_id" value="{{book.id}}" hidden="hidden">
+                <input name="add-lending" type="submit" value="Добавить"/>
+            </form>
+        {% else %}
+            <br>You already booked this book.
+        {% endif %}
+
+    </div>
+{% else %}
+    <p>Book with this article doesn't exist</p>
+{% endif %}
+{% endblock %}

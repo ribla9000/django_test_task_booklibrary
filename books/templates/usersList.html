@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% block content %}
+{% load static %}
+<link href="{% static 'css/usersList.css' %}" rel="stylesheet" type="text/css">
+<p>Click on the one of them</p>
+{% if users %}
+
+        <ol class="usersList">
+            {% for user in users %}
+                    <li class="usersList">
+                    <a href="/books/reader-card/{{ user.id }}/">
+                    {{ user.name }}
+                    {{ user.last_name}}
+                    {{ user.father_name }}
+                    </a>
+                    </li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <p>No users found</p>
+    {% endif %}
+{% endblock %}

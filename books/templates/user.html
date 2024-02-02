@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+{% block title %} Me {% endblock %}
+
+{% block content %}
+{% if user is not None %}
+{% load static %}
+<link href="{% static 'css/user.css' %}" rel="stylesheet" type="text/css">
+
+    <div class="user-page">
+        <div class="user-info">
+            <span class="name">Name: {{ user.name }}</span><br>
+            <span class="last-name">Last Name: {{ user.last_name }}</span><br>
+            <span class="author">
+            {% if user.is_author is True %}
+                Author: Yes
+            {% else %}
+                Author: No
+            {% endif %}
+            </span>
+        </div>
+            <div class="lending-books">
+                Взятые книги:<br>
+                {% if landing_books %}
+                    {% for book in landing_books %}
+                        <div class="booked-book">
+                            Название: {{book.title}}<br>
+                            Описание: {{book.description}}<br>
+                            Кол-во страниц: {{book.pages}}<br>
+                            Уникальный артикль: {{book.article}}<br>
+                            Author: {{ book.last_name }} {{book.name|slice:":1"}}.
+                            {% if book.father_name %}
+                                {{book.father_name|slice:":1"}}.
+                            {% else %}
+                            {% endif %}
+                            <form method="post" action="/books/remove-book/">
+                                {% csrf_token %}
+                                <input name="book_id" value="{{book.id}}" hidden="hidden">
+                                <input class="remove-book" value="Убрать" name="remove-book" type="submit">
+                            </form>
+                        </div>
+                    {% endfor %}
+            </div>
+
+                {% else %}
+                    <p>Пусто</p>
+                {% endif %}
+    </div>
+{% else %}
+    <p>This user doesn't exist</p>
+{% endif %}
+{% endblock %}

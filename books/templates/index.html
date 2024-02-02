@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" style="width: 100%; height: 100%">
+<head>
+    {% load static %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <title>{% block title %}BooksMarket{% endblock %}</title>
+</head>
+<body style="background-color: #e8dfdf; width: 100%; height: 100%">
+        {% block navbar %}
+            {% include "navbar.html" %}
+        {% endblock %}
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

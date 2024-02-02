@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+{% block title %} Books {% endblock %}
+
+{% block content %}
+{% load static %}
+<link href="{% static 'css/books.css' %}" rel="stylesheet" type="text/css">
+
+<p>Click on the one or click <a href="/books/create/form/">Create</a></p>
+{% if message %}
+<div class="alert">{{ message }}</div>
+{% else %}
+{% if books %}
+<div class="books-page">
+    {% for book in books %}
+    <div class="book">
+            {% if book.cover %}
+                <img src="../static/images/{{ book.cover }}" alt="book-image" class="book-image">
+            {% else %}
+                <img src="../static/images/question.png" alt="question" class="book-image">
+            {% endif %}
+
+            <h3>Название: {{ book.title }}</h3>
+            <div class="book-info">
+                Описание: {{ book.description }}<br>
+                Страниц: {{ book.pages }}<br>
+                Артикль: {{ book.article }}<br>
+                Author: {{ book.last_name }} {{book.name|slice:":1"}}.
+                {% if book.father_name %}
+                    {{book.father_name|slice:":1"}}.
+                {% else %}
+            </div>
+            {% endif %}
+        <form method="post" action="add-book/" class="add-book">
+            {% csrf_token %}
+            <input name="book_id" value="{{book.id}}" hidden="hidden">
+            <input name="add-lending" type="submit" value="Добавить"/></p>
+        </form>
+
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No books found</p>
+{% endif %}
+{% endif %}
+{% endblock %}

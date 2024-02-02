@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% block content %}
+<h2>User form</h2>
+<form method="post" action="/books/reader-card/create/">
+    {% csrf_token %}
+    <p>Name:<br> <input name="name" value="Maxim"/></p>
+    <p>last name:<br> <input name="last_name" value="Petrikov"/></p>
+    <p>Father name:<br> <input name="father_name" /></p>
+    <p>Are you author?:<br> <input name="is_author" type="checkbox" /></p>
+    <input type="submit" value="Send" />
+</form>
+{% endblock %}
